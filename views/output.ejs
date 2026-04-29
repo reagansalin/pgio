@@ -1,0 +1,15 @@
+<%- include("_header") -%>
+
+<h3>Click on submit to export all database records to export.csv</h3>
+<form action="/output" method="post" class="mt-3">
+  <input class="btn btn-success" type="submit" id="submit" value="Download">
+</form>
+
+<% if (message.substring(0, 5) === "Error") { %>
+  <div class="alert alert-danger mt-3">
+    <h2>Error!</h2>
+    <p class="mb-0"><%= message %></p>
+  </div>
+<% } %>
+
+<%- include("_footer") -%>

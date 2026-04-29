@@ -1,0 +1,35 @@
+<%- include("_header") -%>
+
+<h1>Select a file with products for Database Insert</h1>
+<form class="mt-3">
+  <input class="form-control" type="file" name="filename" required>
+  <p></p>
+  <input class="btn btn-primary" type="submit" value="Upload and Process">
+</form>
+<p class="mt-3" id="result"></p>
+
+<script>
+  document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    fetch('/input', {
+      method: 'POST',
+      body: formData
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        const resultElement = document.getElementById('result');
+        if (data.substring(0, 5) === 'Error') {
+          resultElement.innerText = `Error occurred! ${data}`;
+        } else {
+          resultElement.innerText = data;
+        }
+      })
+      .catch((err) => {
+        document.getElementById('result').textContent = `Error: ${err.message}`;
+      });
+  });
+</script>
+
+<%- include("_footer") -%>

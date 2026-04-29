@@ -1,0 +1,25 @@
+{
+  "name": "pgio",
+  "version": "1.0.0",
+  "description": "PostgreSQL IO application for IS 445/545 Tutorial 12",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "express",
+    "ejs",
+    "postgres",
+    "multer",
+    "neon"
+  ],
+  "author": "Reagan",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.13.1"
+  }
+}
