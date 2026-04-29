@@ -13,11 +13,11 @@ app.set('view engine', 'ejs');
 const connectionString = process.env.DATABASE_URL;
 
 const pool = new Pool({
-  connectionString: connectionString,
-  ssl: connectionString && connectionString.includes("neon.tech")
-    ? { rejectUnauthorized: false }
-    : false,
-  max: 2
+  connectionString: process.env.DATABASE_URL,
+  max: 2,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 app.get('/', (req, res) => {
